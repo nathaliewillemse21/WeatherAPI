@@ -9,24 +9,23 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Weather App</title>
     <style>
-       body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Change font family */
-        text-align: center;
-        margin-top: 50px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        font-size: 18px; /* Increase font size */
-        color: #000000;
-        /* background-image: url('https://i.ibb.co/GMQs7C6/download-4-copy-0.jpg'); */
-        background: linear-gradient(135deg, #81d0f0, #d027a9);        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Anton;
+            text-align: center;
+            margin-top: 50px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            font-size: 18px;
+            color: #000000;
+            background: linear-gradient(135deg, #81d0f0, #d027a9);
+        }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            /* background-color: rgba(255, 255, 255, 0.8);  */
         }
 
         input {
@@ -52,28 +51,36 @@
             flex: 1 1 45%;
             margin: 10px;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             opacity: 0.6;
         }
+
         @keyframes rainbow {
-            0%, 100% {
+
+            0%,
+            100% {
                 color: red;
             }
+
             16% {
                 color: orange;
             }
+
             32% {
                 color: yellow;
             }
+
             48% {
                 color: green;
             }
+
             64% {
                 color: blue;
-             }
+            }
+
             80% {
                 color: indigo;
             }
+
             96% {
                 color: violet;
             }
@@ -81,9 +88,9 @@
 
         h1 {
             animation: rainbow 3s infinite;
-            font-size: 2.5em; /* Increase heading font size */
-        font-weight: bold; /* Ensure heading is bold */
-        font-family: 'Arial', sans-serif; 
+            font-size: 2.5em;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
         }
     </style>
 </head>
@@ -99,7 +106,6 @@
         </form>
         <div class="weather-info" id="weatherInfo"></div>
     </div>
-    <!-- Placeholder for weather image -->
     <div id="weatherImage" class="weather-image"></div>
     </div>
     <script>
@@ -139,7 +145,6 @@
                             <p>Sunset: ${data.sunset}</p>
                     </div>
                 `;
-                // Update weather image based on condition
                 updateWeatherImage(data.condition);
             }
         });
