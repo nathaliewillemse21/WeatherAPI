@@ -9,23 +9,32 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Weather App</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Anton;
-            text-align: center;
-            margin-top: 50px;
-            background-size: cover !important;
-            background-repeat: no-repeat !important;
-            background-position: center center;
-            font-size: 18px;
-            color: #000000;
-            background: linear-gradient(135deg, #81d0f0, #d027a9);
-        }
+       html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Anton;
+    text-align: center;
+    margin-top: 50px;
+    background: linear-gradient(135deg, #81d0f0, #d027a9);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-size: 18px;
+    color: #000000;
+}
+
 
         .container {
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            border-radius: 10px;
         }
 
         input {
@@ -51,36 +60,30 @@
             flex: 1 1 45%;
             margin: 10px;
             padding: 20px;
-            opacity: 0.6;
+            opacity: 0.8;
+            background: #f0f0f0;
+            border-radius: 8px;
         }
 
         @keyframes rainbow {
-
-            0%,
-            100% {
+            0%, 100% {
                 color: red;
             }
-
             16% {
                 color: orange;
             }
-
             32% {
                 color: yellow;
             }
-
             48% {
                 color: green;
             }
-
             64% {
                 color: blue;
             }
-
             80% {
                 color: indigo;
             }
-
             96% {
                 color: violet;
             }
@@ -96,17 +99,13 @@
 </head>
 
 <body>
-
     <div class="container">
         <h1 class="display-3">Weather App</h1>
         <form id="weatherForm">
             <input type="text" id="city" name="city" placeholder="Enter city name" required>
-
             <button type="submit">Get Weather</button>
         </form>
         <div class="weather-info" id="weatherInfo"></div>
-    </div>
-    <div id="weatherImage" class="weather-image"></div>
     </div>
     <script>
         document.getElementById('weatherForm').addEventListener('submit', async function (event) {
@@ -126,23 +125,22 @@
             } else {
                 weatherInfoDiv.innerHTML = `
                     <div>
-                         <h2>Temperature Details</h2>
-                            <p>Temperature: ${data.temp}°C</p>
-                            <p>Min Temperature: ${data.min_temp}°C</p>
-                            <p>Max Temperature: ${data.max_temp}°C</p>
-
-                        </div>
-                        <div>
-                             <h2>Weather Condition</h2>
-                            <p>Condition: ${data.condition}</p>
-                            <p>Pressure: ${data.pressure} hPa</p>
-                            <p>Humidity: ${data.humidity}%</p>
-                        </div>
-                        <div>
-                             <h2>Wind Information</h2>
-                            <p>Wind Speed: ${data.wind} m/s</p>
-                            <p>Sunrise: ${data.sunrise}</p>
-                            <p>Sunset: ${data.sunset}</p>
+                        <h2>Temperature Details</h2>
+                        <p>Temperature: ${data.temp}°C</p>
+                        <p>Min Temperature: ${data.min_temp}°C</p>
+                        <p>Max Temperature: ${data.max_temp}°C</p>
+                    </div>
+                    <div>
+                        <h2>Weather Condition</h2>
+                        <p>Condition: ${data.condition}</p>
+                        <p>Pressure: ${data.pressure} hPa</p>
+                        <p>Humidity: ${data.humidity}%</p>
+                    </div>
+                    <div>
+                        <h2>Wind Information</h2>
+                        <p>Wind Speed: ${data.wind} m/s</p>
+                        <p>Sunrise: ${data.sunrise}</p>
+                        <p>Sunset: ${data.sunset}</p>
                     </div>
                 `;
                 updateWeatherImage(data.condition);
@@ -152,13 +150,13 @@
         function updateWeatherImage(condition) {
             const body = document.body;
             if (condition === 'Rain') {
-                body.style.backgroundImage = "url('https://imagizer.imageshack.com/img924/763/RYq73b.jpg')";
+                body.style.backgroundImage = "url('https://imagizer.imageshack.com/img924/1291/zdFJ6D.jpg')";
             } else if (condition === 'Clear') {
-                body.style.backgroundImage = "url('https://imagizer.imageshack.com/img923/6586/f0WPRH.jpg')";
+                body.style.backgroundImage = "url('https://imagizer.imageshack.com/img924/7444/HP3t73.jpg')";
             } else if (condition === 'Clouds') {
-                body.style.backgroundImage = "url('https://imagizer.imageshack.com/img924/9770/XSio1V.jpg')";
+                body.style.backgroundImage = "url('https://imagizer.imageshack.com/img923/4686/sMEpvD.jpg')";
             } else if (condition === 'Fog') {
-                body.style.backgroundImage = "url('https://imagizer.imageshack.com/img922/1889/Z8jWZw.jpg')";
+                body.style.backgroundImage = "url('https://imagizer.imageshack.com/img924/1157/hpClU0.jpg')";
             } else {
                 body.style.backgroundImage = "url('https://imagizer.imageshack.com/img924/7660/Mz7ogc.jpg')";
             }
